@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+
+  mongo:
+    image: mongo:7
+    container_name: commercehub-mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: kibocommerce
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: commercehub-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  api:
+    build:
+      context: .
+      dockerfile: CommerceHub.API/Dockerfile
+    container_name: commercehub-api
+    ports:
+      - "5000:8080"
+    depends_on:
+      - mongo
+      - rabbitmq
+    environment:
+      - MongoSettings__ConnectionString=mongodb://mongo:27017
+      - MongoSettings__DatabaseName=kibocommerce
+      - RabbitMqSettings__HostName=rabbitmq
