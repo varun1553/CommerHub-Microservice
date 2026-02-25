@@ -28,6 +28,6 @@ services:
       - mongo
       - rabbitmq
     environment:
-      - MongoSettings__ConnectionString=mongodb://mongo:27017
+      - MongoSettings__ConnectionString=mongodb+srv://Varun:Varun@cluster0.klf74.mongodb.net/
       - MongoSettings__DatabaseName=kibocommerce
       - RabbitMqSettings__HostName=rabbitmq
