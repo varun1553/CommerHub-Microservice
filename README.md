@@ -67,12 +67,12 @@ The entire environment, including the API, MoongoDB and RabbitMQ is containerize
 
 ## Clone the repository
 
-   * git clone https://github.com/varun1553/CommerHub-Microservice.git
-   * cd CommerHub-Microservice
+    git clone https://github.com/varun1553/CommerHub-Microservice.git
+    cd CommerHub-Microservice
 
 ## Launch the stack 
     
-    * docker-compose up --build
+    docker-compose up --build
    
    -> The API will be available at http://localhost:5115
    -> MongoDB is exposed on 27017
@@ -87,4 +87,5 @@ Tests project includes nUnit test cases:
 -> Event Emmission: Ensuring OrderCreated events are successfully published to RabbitMQ
 
 To run tests use command: 
-      * dotnet test
+
+      dotnet test
