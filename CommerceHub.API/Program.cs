@@ -9,9 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var configuration = builder.Configuration;
 
-// --------------------
 // MongoDB Registration
-// --------------------
 builder.Services.AddSingleton<MongoDbContext>(sp =>
 {
     var mongoSettings = configuration
@@ -27,9 +25,7 @@ builder.Services.AddSingleton<MongoDbContext>(sp =>
     );
 });
 
-// --------------------
 // RabbitMQ Registration
-// --------------------
 builder.Services.Configure<RabbitMqSettings>(
     configuration.GetSection("RabbitMqSettings")
 );
@@ -46,20 +42,14 @@ builder.Services.AddSingleton<IMessagePublisher>(sp =>
     return new RabbitMqPublisher(settings);
 });
 
-// --------------------
 // Repositories
-// --------------------
 builder.Services.AddScoped<IOrderRepository, MongoOrderRepository>();
 builder.Services.AddScoped<IProductRepository, MongoProductRepository>();
 
-// --------------------
 // Application Services
-// --------------------
 builder.Services.AddScoped<OrderService>();
 
-// --------------------
 // Controllers + Swagger
-// --------------------
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
