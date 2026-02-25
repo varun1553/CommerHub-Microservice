@@ -24,7 +24,7 @@ Containerization: Docker & Docker Compose
 
 ### POST /api/orders/checkout
 Processes a new order:
-- Validates quantity > 0
+- Validates quantity>0
 - Verifies stock
 - Atomically decrements inventory
 - Creates order
@@ -74,9 +74,11 @@ The entire environment, including the API, MoongoDB and RabbitMQ is containerize
     
     docker-compose up --build
    
-   -> The API will be available at http://localhost:5115
-   -> MongoDB is exposed on 27017
-   -> RabbitMQ Management UI is available at http://localhost/15672 (Guest/Guest)
+   ### The API will be available at  
+       http://localhost:5115
+   ### MongoDB is exposed on 27017
+   ### RabbitMQ Management UI is available at
+       http://localhost/15672 (Guest/Guest)
 
 
 # Testing 
