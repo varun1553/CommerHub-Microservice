@@ -28,7 +28,7 @@ The entire environment, including the API, MoongoDB and RabbitMQ is containerize
     
     * docker-compose up --build
    
-   -> The API will be available at http://localhost:5000
+   -> The API will be available at http://localhost:5115
    -> MongoDB is exposed on 27017
    -> RabbitMQ Management UI is available at http://localhost/15672 (Guest/Guest)
 
